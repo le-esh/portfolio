@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seunghoon Lee — Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <span class="brand">Seunghoon Lee</span>
+    <nav class="header-links">
+      <a href="assets/SeunghoonLee_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="assets/SeunghoonLee_Portfolio_30p.pdf" target="_blank" rel="noopener">Portfolio (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Seunghoon Lee</h1>
+  <p class="role">Computational Designer</p>
+  <p class="sub">M.S. Design Technology, Cornell University</p>
+  <div class="hero-actions">
+    <button class="btn btn-primary" id="view-portfolio-btn">View Portfolio</button>
+    <a class="btn btn-secondary" href="assets/SeunghoonLee_Portfolio_30p.pdf" download>Download PDF</a>
+  </div>
+</section>
+
+<main>
+  <section class="gallery" id="gallery" aria-label="Portfolio pages">
+    <!-- thumbnails injected by script.js -->
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Seunghoon Lee</p>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous page">&#10094;</button>
+  <div class="lb-stage">
+    <img id="lb-image" src="" alt="">
+  </div>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next page">&#10095;</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
