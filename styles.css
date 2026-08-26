@@ -75,10 +75,52 @@ body {
 
 /* Hero */
 .hero {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 64px 24px 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
   text-align: center;
+}
+
+.scroll-cue {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  animation: scroll-cue-bounce 2s ease-in-out infinite;
+}
+
+.scroll-cue span {
+  font-size: 1rem;
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero > *:not(.hero-bg-video) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -118,10 +160,16 @@ body {
   flex-wrap: wrap;
 }
 
-/* Hero slideshow */
+/* Portfolio preview slideshow */
+.portfolio-preview {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+}
+
 .hero-slideshow {
   max-width: 900px;
-  margin: 8px auto 32px;
+  margin: 0 auto 32px;
 }
 
 .slideshow-stage {
