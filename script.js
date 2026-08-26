@@ -7,7 +7,6 @@
   const lbClose = document.getElementById('lb-close');
   const lbPrev = document.getElementById('lb-prev');
   const lbNext = document.getElementById('lb-next');
-  const viewPortfolioBtn = document.getElementById('view-portfolio-btn');
 
   let current = 0;
 
@@ -106,7 +105,6 @@
 
   startSlideTimer();
 
-  viewPortfolioBtn.addEventListener('click', () => openLightbox(0));
   lbClose.addEventListener('click', closeLightbox);
   lbPrev.addEventListener('click', showPrev);
   lbNext.addEventListener('click', showNext);
