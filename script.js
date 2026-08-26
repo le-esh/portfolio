@@ -55,6 +55,57 @@
     updateImage();
   }
 
+  // Hero slideshow
+  const slideStage = document.querySelector('.slideshow-stage');
+  const slideImage = document.getElementById('slideshow-image');
+  const slidePrev = document.getElementById('slide-prev');
+  const slideNext = document.getElementById('slide-next');
+  const slideDots = document.getElementById('slide-dots');
+  const SLIDE_INTERVAL = 4500;
+  let slideIndex = 0;
+  let slideTimer = null;
+
+  for (let i = 0; i < PAGE_COUNT; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide(i);
+      restartSlideTimer();
+    });
+    slideDots.appendChild(dot);
+  }
+
+  function updateSlide() {
+    const n = slideIndex + 1;
+    slideImage.src = 'images/page-' + pad(n) + '.jpg';
+    slideImage.alt = 'Portfolio page ' + n;
+    [...slideDots.children].forEach((d, i) => d.classList.toggle('active', i === slideIndex));
+  }
+
+  function goToSlide(i) {
+    slideIndex = (i + PAGE_COUNT) % PAGE_COUNT;
+    updateSlide();
+  }
+
+  function startSlideTimer() {
+    slideTimer = setInterval(() => goToSlide(slideIndex + 1), SLIDE_INTERVAL);
+  }
+
+  function restartSlideTimer() {
+    clearInterval(slideTimer);
+    startSlideTimer();
+  }
+
+  slidePrev.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(slideIndex - 1); restartSlideTimer(); });
+  slideNext.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(slideIndex + 1); restartSlideTimer(); });
+  slideStage.addEventListener('click', () => openLightbox(slideIndex));
+  slideStage.addEventListener('mouseenter', () => clearInterval(slideTimer));
+  slideStage.addEventListener('mouseleave', startSlideTimer);
+
+  startSlideTimer();
+
   viewPortfolioBtn.addEventListener('click', () => openLightbox(0));
   lbClose.addEventListener('click', closeLightbox);
   lbPrev.addEventListener('click', showPrev);

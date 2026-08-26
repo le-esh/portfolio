@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESH — Motion Graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sketch-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .sketch-page h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .sketch-page .note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .sketch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+  }
+  .sketch-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .sketch-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+  .sketch-thumb {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    background: #000;
+  }
+  .sketch-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sketch-thumb .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sketch-thumb .play-icon span {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    backdrop-filter: blur(2px);
+  }
+  .sketch-card .label {
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .lb-stage video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">ESH</a>
+    <nav class="header-links">
+      <a href="assets/SeunghoonLee_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://www.instagram.com/le_esh_design/" target="_blank" rel="noopener">Instagram</a>
+      <a href="video.html">noncircle</a>
+      <a href="sketch.html">Digital Sketch</a>
+      <a href="motion.html">Motion Graphics</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sketch-page">
+  <a class="back-link" href="index.html">&larr; Back</a>
+  <h1>Motion Graphics</h1>
+  <p class="note">Collaborative motion pieces. Click a piece to view enlarged.</p>
+
+  <div class="sketch-grid" id="sketch-grid">
+    <div class="sketch-card" data-src="assets/galaxy/03.mp4" data-poster="assets/galaxy/03-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/03-thumb.jpg" alt="Swimming through the mystic"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Swimming through the mystic</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/04.mp4" data-poster="assets/galaxy/04-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/04-thumb.jpg" alt="We all begin as buds before blooming into flowers"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">We all begin as buds before blooming into flowers</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/05.mp4" data-poster="assets/galaxy/05-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/05-thumb.jpg" alt="Fireworks in dreamscape New York"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Fireworks in dreamscape New York</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/06.mp4" data-poster="assets/galaxy/06-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/06-thumb.jpg" alt="Blooming earth"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Blooming earth</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/07.mp4" data-poster="assets/galaxy/07-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/07-thumb.jpg" alt="Planet running in circles"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Planet running in circles</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/08.mp4" data-poster="assets/galaxy/08-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/08-thumb.jpg" alt="Fishy bubbles"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Fishy bubbles</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/09.mp4" data-poster="assets/galaxy/09-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/09-thumb.jpg" alt="Water bomb"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Water bomb</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/10.mp4" data-poster="assets/galaxy/10-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/10-thumb.jpg" alt="Shattering floral glasses"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Shattering floral glasses</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/11.mp4" data-poster="assets/galaxy/11-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/11-thumb.jpg" alt="Shattering glitters"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Shattering glitters</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/12.mp4" data-poster="assets/galaxy/12-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/12-thumb.jpg" alt="Pop-up blossom blue"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Pop-up blossom blue</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/13.mp4" data-poster="assets/galaxy/13-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/13-thumb.jpg" alt="Rainy marbles"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Rainy marbles</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/14.mp4" data-poster="assets/galaxy/14-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/14-thumb.jpg" alt="Butterfly ballet"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Butterfly ballet</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/15.mp4" data-poster="assets/galaxy/15-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/15-thumb.jpg" alt="Swirling glass flower"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Swirling glass flower</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/16.mp4" data-poster="assets/galaxy/16-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/16-thumb.jpg" alt="Cloudcream to icecream"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Cloudcream to icecream</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/17.mp4" data-poster="assets/galaxy/17-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/17-thumb.jpg" alt="Dispersing air balloons"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Dispersing air balloons</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/18.mp4" data-poster="assets/galaxy/18-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/18-thumb.jpg" alt="Vaping the universe"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Vaping the universe</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/19.mp4" data-poster="assets/galaxy/19-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/19-thumb.jpg" alt="Bouncing through the universe"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Bouncing through the universe</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/20.mp4" data-poster="assets/galaxy/20-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/20-thumb.jpg" alt="Time is like an arrow"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Time is like an arrow</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/21.mp4" data-poster="assets/galaxy/21-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/21-thumb.jpg" alt="Light bulb"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Light bulb</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/22.mp4" data-poster="assets/galaxy/22-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/22-thumb.jpg" alt="Clock"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Clock</div>
+    </div>
+    <div class="sketch-card" data-src="assets/galaxy/23.mp4" data-poster="assets/galaxy/23-thumb.jpg">
+      <div class="sketch-thumb"><img src="assets/galaxy/23-thumb.jpg" alt="Water wave"><div class="play-icon"><span>&#9658;</span></div></div>
+      <div class="label">Water wave</div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="video-lightbox" aria-hidden="true">
+  <button class="lb-close" id="vlb-close" aria-label="Close">&times;</button>
+  <div class="lb-stage">
+    <video id="vlb-video" controls playsinline poster=""></video>
+  </div>
+</div>
+
+<script src="video.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>

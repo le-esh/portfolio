@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESH — Digital Sketch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sketch-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .sketch-page h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .sketch-page .note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .sketch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .sketch-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .sketch-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+  .sketch-thumb {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: #000;
+  }
+  .sketch-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sketch-thumb .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sketch-thumb .play-icon span {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    backdrop-filter: blur(2px);
+  }
+  .sketch-card .label {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .lb-stage video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">ESH</a>
+    <nav class="header-links">
+      <a href="assets/SeunghoonLee_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://www.instagram.com/le_esh_design/" target="_blank" rel="noopener">Instagram</a>
+      <a href="video.html">noncircle</a>
+      <a href="sketch.html">Digital Sketch</a>
+      <a href="motion.html">Motion Graphics</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sketch-page">
+  <a class="back-link" href="index.html">&larr; Back</a>
+  <h1>Digital Sketch — InkBleed</h1>
+  <p class="note">Generative ink-simulation studies built in Grasshopper. Click a piece to view enlarged.</p>
+
+  <div class="sketch-grid" id="sketch-grid">
+    <div class="sketch-card" data-src="assets/sketch/sketch-05.mp4" data-poster="assets/sketch/sketch-05-thumb.jpg" data-label="InkBleed 05">
+      <div class="sketch-thumb">
+        <img src="assets/sketch/sketch-05-thumb.jpg" alt="InkBleed 05">
+        <div class="play-icon"><span>&#9658;</span></div>
+      </div>
+      <div class="label">InkBleed 05</div>
+    </div>
+    <div class="sketch-card" data-src="assets/sketch/sketch-04-2.mp4" data-poster="assets/sketch/sketch-04-2-thumb.jpg" data-label="InkBleed 04-2">
+      <div class="sketch-thumb">
+        <img src="assets/sketch/sketch-04-2-thumb.jpg" alt="InkBleed 04-2">
+        <div class="play-icon"><span>&#9658;</span></div>
+      </div>
+      <div class="label">InkBleed 04-2</div>
+    </div>
+    <div class="sketch-card" data-src="assets/sketch/sketch-03.mp4" data-poster="assets/sketch/sketch-03-thumb.jpg" data-label="InkBleed 03">
+      <div class="sketch-thumb">
+        <img src="assets/sketch/sketch-03-thumb.jpg" alt="InkBleed 03">
+        <div class="play-icon"><span>&#9658;</span></div>
+      </div>
+      <div class="label">InkBleed 03</div>
+    </div>
+    <div class="sketch-card" data-src="assets/sketch/sketch-02.mp4" data-poster="assets/sketch/sketch-02-thumb.jpg" data-label="InkBleed 02">
+      <div class="sketch-thumb">
+        <img src="assets/sketch/sketch-02-thumb.jpg" alt="InkBleed 02">
+        <div class="play-icon"><span>&#9658;</span></div>
+      </div>
+      <div class="label">InkBleed 02</div>
+    </div>
+  </div>
+</main>
+
+<div class="lightbox" id="video-lightbox" aria-hidden="true">
+  <button class="lb-close" id="vlb-close" aria-label="Close">&times;</button>
+  <div class="lb-stage">
+    <video id="vlb-video" controls playsinline poster=""></video>
+  </div>
+</div>
+
+<script src="video.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>
