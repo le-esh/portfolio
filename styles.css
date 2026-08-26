@@ -56,9 +56,9 @@ body {
 }
 
 .brand {
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.08em;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text);
   text-decoration: none;
 }
