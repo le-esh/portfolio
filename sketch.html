@@ -93,6 +93,51 @@
     object-fit: contain;
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   }
+
+  .code-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 24px;
+    transition: color 0.15s ease;
+  }
+  .code-toggle:hover { color: var(--text); }
+  .code-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 0.7rem;
+  }
+  .code-toggle.open .arrow { transform: rotate(180deg); }
+
+  .code-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .code-panel.open { max-height: 2000px; }
+  .code-panel pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    text-align: left;
+    margin: 0 0 32px;
+  }
+  .code-panel code {
+    font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text);
+    white-space: pre;
+  }
 </style>
 </head>
 <body>
@@ -113,6 +158,68 @@
   <a class="back-link" href="index.html">&larr; Back</a>
   <h1>Digital Sketch — Digital Sumukhwa Series</h1>
   <p class="note">Generative ink-simulation studies built in Grasshopper and ghPython. Click a piece to view enlarged.</p>
+
+  <button class="code-toggle" id="code-toggle" aria-expanded="false">
+    <span>View ghPython code</span>
+    <span class="arrow">&#9660;</span>
+  </button>
+  <div class="code-panel" id="code-panel">
+    <pre><code>import Rhino.Geometry as rg
+import random
+import math
+
+def deform_polyline(polyline, iterations, variance, y_threshold):
+    current_point = list(polyline)
+
+    for _ in range(iterations) :
+        next_point = []
+        for i in range(len(current_point)-1):
+            p1 = current_point[i]
+            p2 = current_point[i+1]
+            mid = (p1 + p2)*0.5
+
+            gravity_force = v
+
+
+
+            if mid.Y &lt; y_threshold:
+                move_x = (random.random() + random.random()-1) * variance *0.02
+                move_y = (random.random() + random.random()-1-gravity_force) * variance
+            else:
+                move_x = (random.random() + random.random()-1) * variance *0.01
+                move_y = (random.random() + random.random()-1) * variance *0.01
+
+
+            offset = rg.Vector3d(move_x, move_y,0)
+
+            mid += offset
+            next_point.append(p1)
+            next_point.append(mid)
+
+        next_point.append(current_point[-1])
+        current_point = next_point
+        variance *= y
+
+    return rg.Polyline(current_point).ToPolylineCurve()
+
+output_curves=[]
+
+if x:
+    bbox = x.GetBoundingBox(True)
+    y_min = bbox.Min.Y
+    y_max = bbox.Max.Y
+    y_range = y_max - y_min
+
+    threshold = y_min + (y_range*w)
+
+    success, polyline = x.TryGetPolyline()
+    if success:
+        for _ in range(int(u)):
+            deformed = deform_polyline(polyline, int(z), y, threshold)
+            output_curves.append(deformed)
+
+a = output_curves</code></pre>
+  </div>
 
   <div class="sketch-grid" id="sketch-grid">
     <div class="sketch-card" data-src="assets/sketch/sketch-05.mp4" data-poster="assets/sketch/sketch-05-thumb.jpg" data-label="Sumukhwa 01">
@@ -156,5 +263,16 @@
 <script src="protect.js"></script>
 <script src="video.js"></script>
 <script src="sketch.js"></script>
+<script>
+  (function () {
+    const toggle = document.getElementById('code-toggle');
+    const panel = document.getElementById('code-panel');
+    toggle.addEventListener('click', function () {
+      const isOpen = panel.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  })();
+</script>
 </body>
 </html>
