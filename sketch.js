@@ -42,4 +42,15 @@
     if (!lightbox.classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
   });
+
+  // Deep link: ?play=<slug> auto-opens and plays that card.
+  // Muted so autoplay isn't blocked by the browser on page load; viewer can unmute via controls.
+  const playSlug = new URLSearchParams(location.search).get('play');
+  if (playSlug) {
+    const target = grid.querySelector('[data-slug="' + playSlug + '"]');
+    if (target) {
+      vlbVideo.muted = true;
+      openLightbox(target);
+    }
+  }
 })();
