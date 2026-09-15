@@ -8,6 +8,7 @@
     const src = card.dataset.src;
     const poster = card.dataset.poster;
     vlbVideo.poster = poster;
+    vlbVideo.loop = card.dataset.loop === 'true';
     let source = vlbVideo.querySelector('source');
     if (!source) {
       source = document.createElement('source');
