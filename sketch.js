@@ -20,7 +20,11 @@
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    // Attempt play immediately (covers the common case), and again once the
+    // browser signals it's actually ready — calling play() right after load()
+    // can otherwise get silently interrupted on a busy first page load.
     vlbVideo.play().catch(() => {});
+    vlbVideo.oncanplay = () => { vlbVideo.play().catch(() => {}); };
   }
 
   function closeLightbox() {
