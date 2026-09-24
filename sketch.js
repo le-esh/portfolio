@@ -35,6 +35,9 @@
   }
 
   grid.querySelectorAll('.sketch-card').forEach((card) => {
+    // Cards with no data-src are external links (e.g. an interactive artifact) —
+    // let the browser handle the click natively instead of opening the video lightbox.
+    if (!card.dataset.src) return;
     card.addEventListener('click', () => openLightbox(card));
   });
 
